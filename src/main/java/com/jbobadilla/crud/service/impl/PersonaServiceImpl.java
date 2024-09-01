@@ -9,6 +9,7 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.Utilities;
 import java.util.List;
 import java.util.Optional;
 
@@ -61,6 +62,7 @@ public class PersonaServiceImpl implements IPersonaService {
         boolean encontrado = personaRepository.existsById(id);
         if (encontrado) {
             personaRepository.deleteById(id);
+            return;
         }
         throw new EntityNotFoundException();
     }
